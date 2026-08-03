@@ -108,15 +108,15 @@ with col2:
         else:
             with st.spinner("Analyzing profile..."):
                 # Retrieve API Key
-                groq_api_key = os.environ.get("GROQ_API_KEY")
+                groq_api_key = os.environ.get("GROQ_BEC_API_KEY")
                 
                 if not groq_api_key:
-                    output_container.error("GROQ_API_KEY not found. Please set it in your `.env` file or system environment variables.")
+                    output_container.error("GROQ_BEC_API_KEY not found. Please set it in your `.env` file or system environment variables.")
                 else:
                     try:
                         # 1. Initialize LLM dynamically with the user's selected temperature
                         llm = ChatGroq(
-                            groq_api_key=groq_api_key,
+                            groq_api_key=GROQ_BEC_API_KEY,
                             model_name="llama-3.3-70b-versatile",
                             temperature=temperature
                         )
